@@ -1,0 +1,103 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+import HtmlIcon from "../icons/HtmlIcon.astro"
+import CssIcon from "../icons/CssIcon.astro"
+import JavaScriptIcon from "../icons/JavaScriptIcon.astro"
+import JavaIcon from "../icons/JavaIcon.astro"
+import SpringbootIcon from "../icons/SpringbootIcon.astro"
+import ThymeleafIcon from "../icons/ThymeleafIcon.astro"
+import DockerIcon from "../icons/DockerIcon.astro"
+import MySqlIcon from "../icons/MySqlIcon.astro"
+import BootstrapIcon from "../icons/BootstrapIcon.astro"
+
+
+const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-[#003159] text-white",
+    icon: HtmlIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#003159] text-white",
+    icon: CssIcon,
+  },
+  JavaScript: {
+    name: "JavaScript",
+    class: "bg-[#003159] text-white",
+    icon: JavaScriptIcon,
+  },
+  Java: {
+    name: "Java",
+    class: "bg-[#003159] text-white",
+    icon: JavaIcon,
+  },
+  Springboot: {
+    name: "Spring Boot",
+    class: "bg-[#003159] text-white",
+    icon: SpringbootIcon,
+  },
+  Thymeleaf: {
+    name: "Thymeleaf",
+    class: "bg-[#003159] text-white",
+    icon: ThymeleafIcon,
+  },
+  Docker: {
+    name: "Docker",
+    class: "bg-[#003159] text-white",
+    icon: DockerIcon,
+  },
+  MySql: {
+    name: "MySql",
+    class: "bg-[#003159] text-white",
+    icon: MySqlIcon,
+  },
+  Bootstrap: {
+    name: "Bootstrap",
+    class: "bg-[#003159] text-white",
+    icon: BootstrapIcon,
+  },
+}
+
+
+const PROJECTS = [
+    {
+    title: "Encriptador de texto",
+    description: 'Este proyecto fue realizado como trabajo integrador del Bootcamp Oracle Next Education - Web Development By Alura. El cual encripta / desencripta cadenas de texto ingresadas por el usuario.',
+    link: "https://lucascaro97.github.io/ChallengeEncriptadorTextoAlura/",
+    github: "https://github.com/LucasCaro97/ChallengeEncriptadorTextoAlura",
+    image: "/proyects/imgProyectoEncriptador.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript],
+  },
+]
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+        {title}
+      </h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        loading="lazy"
+        class="rounded shadow-2xl shadow-white/10 aspect-video"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}
+
