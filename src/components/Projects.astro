@@ -60,8 +60,16 @@ const TAGS = {
 }
 
 
-const PROJECTS = [
-    {
+const PROJECTS = [  
+  {
+    title: "E-commerce",
+    description: 'Proyecto realizado para un emprendimiento de venta de cosmeticos. Cuenta con login de administrador donde se pueden crear las categorias y productos que se visualizan en la seccion "Productos"',
+    link: "http://bzmakeup.com.ar",
+    github: "https://github.com/LucasCaro97/bzMakeUp",
+    image: "/proyects/imgProyectoBzMakeUp.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.Java, TAGS.Springboot, TAGS.MySql, TAGS.Bootstrap, TAGS.Docker],
+  },
+  {
     title: "Encriptador de texto",
     description: 'Este proyecto fue realizado como trabajo integrador del Bootcamp Oracle Next Education - Web Development By Alura. El cual encripta / desencripta cadenas de texto ingresadas por el usuario.',
     link: "https://lucascaro97.github.io/ChallengeEncriptadorTextoAlura/",
@@ -74,12 +82,12 @@ const PROJECTS = [
 
 {
   PROJECTS.map(({ image, title, description, tags }) => (
-    <article>
+    <article class="mb-8">
       <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
         {title}
       </h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
+      <ul class="flex gap-x-2 flex-row mb-4">
         {tags.map((tag) => (
           <li>
             <span
