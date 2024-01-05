@@ -9,7 +9,8 @@ import ThymeleafIcon from "../icons/ThymeleafIcon.astro"
 import DockerIcon from "../icons/DockerIcon.astro"
 import MySqlIcon from "../icons/MySqlIcon.astro"
 import BootstrapIcon from "../icons/BootstrapIcon.astro"
-
+import TailwindIcon from '../icons/TailwindIcon.astro'
+import ReactIcon from '../icons/ReactIcon.astro'
 
 const TAGS = {
   HTML: {
@@ -57,17 +58,44 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: BootstrapIcon,
   },
+  Tailwind: {
+    name: "Tailwind",
+    class: "bg-[#003159] text-white",
+    icon: TailwindIcon,
+  },
+  React: {
+    name: "React.js",
+    class: "bg-[#003159] text-white",
+    icon: ReactIcon,
+  },
 }
 
 
 const PROJECTS = [  
   {
     title: "E-commerce",
-    description: 'Proyecto realizado para un emprendimiento de venta de cosmeticos. Cuenta con login de administrador donde se pueden crear las categorias y productos que se visualizan en la seccion "Productos"',
+    description: 'Proyecto realizado para un emprendimiento que comercializa cosmeticos. Cuenta con login de administrador donde se pueden crear las categorias y productos que se visualizan en la seccion "Productos".',
     link: "http://bzmakeup.com.ar",
     github: "https://github.com/LucasCaro97/bzMakeUp",
     image: "/proyects/imgProyectoBzMakeUp.webp",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.Java, TAGS.Springboot, TAGS.MySql, TAGS.Bootstrap, TAGS.Docker],
+  },
+  {
+    title: "Conversor de Divisas",
+    description: `Este proyecto fue refactorizado para publicarlo en este portfolio. En un principio lo desarrolle en el bootcamp de alura latam utlizando Java y la biblioteca Java Swing. Y luego de aprender nuevas tecnologias pase 
+    a transformalo a una aplicacion web utilizando Springboot para la api y React.js para el frontend. Ambas aplicaciones se encuentran corriendo en contenedores de docker en un servidor privado.`,
+    link: "http://200.58.107.39:5173/",
+    github: "https://github.com/LucasCaro97/currency-converter-api",
+    image: "/proyects/imgProyectoConvertidorDivisas.webp",
+    tags: [TAGS.Springboot, TAGS.Java, TAGS.React, TAGS.JavaScript, TAGS.Tailwind, TAGS.MySql, TAGS.Docker]
+  },
+  {
+    title: "Gestor de Pedidos",
+    description: 'Proyecto desarrollado para una empresa que fabrica y comercializa productos artesanales con madera MDF. Es una app simple que se encarga de optimizar y agilizar el proceso del manejo de los pedidos, ya que este pasa por varios estados antes de llegar al cliente.',
+    link: "http://89.117.32.209:8080/",
+    github: "https://github.com/LucasCaro97/bzMakeUp",
+    image: "/proyects/imgProyectoFibrolaser.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.Java, TAGS.Springboot, TAGS.MySql, TAGS.Bootstrap],
   },
   {
     title: "Encriptador de texto",
@@ -81,7 +109,7 @@ const PROJECTS = [
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags }) => (
+  PROJECTS.map(({ image, title, description, tags, link }) => (
     <article class="mb-8">
       <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
         {title}
@@ -99,12 +127,15 @@ const PROJECTS = [
           </li>
         ))}
       </ul>
-      <img
+      <a href={link} target="_blank" rel="noopener noreferrer" class="relative inline-block">
+        <img
         loading="lazy"
         class="rounded shadow-2xl shadow-white/10 aspect-video"
         src={image}
         alt={`Captura de pantalla del proyecto ${image}`}
-      />
+        />
+
+      </a>
     </article>
   ))
 }
